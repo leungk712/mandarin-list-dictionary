@@ -1,7 +1,18 @@
 <template>
   <div>
-    <v-container class="container-border mb-6" style="width: 80%">
-      <p class="display-1 text-center my-4">Chinese Dictionary</p>
+    <v-container class="dictionary-container mb-6">
+      <p class="display-1 text-center my-4">
+        Chinese Dictionary
+      <a
+        data-testid="github-code-link-icon"
+        href="https://github.com/leungk712/mandarin-list-dictionary"
+        target="_blank"
+        class="github-code-link-icon github-icon ml-4"
+        title="Check out the source code!"
+      >
+        <i class="fab fa-github"></i>
+      </a>
+      </p>
       <v-row justify="center" align="center">
         <v-col cols="8">
           <v-text-field
@@ -17,7 +28,11 @@
         </v-col>
       </v-row>
 
-      <v-row v-if="definition.length" justify="center" align-content="center">
+      <v-row
+        v-if="definition.length"
+        justify="center"
+        align-content="center"
+      >
         <v-col cols="6">
           <v-card
             v-for="(result, idx) in definition"
@@ -61,3 +76,12 @@ export default class Dictionary extends Vue {
   // ===== Lifecycle Hooks ===== //
 }
 </script>
+
+<style scoped>
+  .dictionary-container {
+    width: 80%
+  }
+  .github-code-link-icon {
+    color: #4078c0;
+  }
+</style>
